@@ -24,7 +24,7 @@ fn main() {
         };
 
         match choice {
-            1=> celsious_to_fahrenheit(),
+            1=> celsius_to_fahrenheit(),
             2=> fahrenheit_to_celsius(),
             3=> {
                 println!("Goodbye!");
@@ -35,7 +35,7 @@ fn main() {
     }
 }
 
-fn celsious_to_fahrenheit() {
+fn celsius_to_fahrenheit() {
     println!("Enter temperature in Celsius");
 
     let mut celsius = String::new();
@@ -51,9 +51,7 @@ fn celsious_to_fahrenheit() {
         }
     };
     let fahrenheit = (celsius*(9.0/5.0))+32.0;
-    println!("{fahrenheit}F is equal to {celsius}C");
-}
-
+   println!("{celsius} °C is equal to {fahrenheit} °F"); 
 
 
 fn fahrenheit_to_celsius(){
@@ -71,6 +69,9 @@ fn fahrenheit_to_celsius(){
         }
     };
     let celsius = ((fahrenheit- 32.0) * 5.0)/9.0;
-    println!("{celsius}C is equal to {fahrenheit}");
+    
+      println!("{fahrenheit} °F is equal to {celsius} °C");
+}
+
 }
 
