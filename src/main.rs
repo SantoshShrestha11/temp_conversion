@@ -3,9 +3,9 @@ use std::io;
 fn main() {
     println!("Temperature Converter");
 
-    loop{
+    loop {
         println!("\nChoose an option:");
-        println!("1: Convert celsius to Fahrenheit");
+        println!("1: Convert Celsius to Fahrenheit");
         println!("2: Convert Fahrenheit to Celsius");
         println!("3: Exit");
 
@@ -24,19 +24,19 @@ fn main() {
         };
 
         match choice {
-            1=> celsius_to_fahrenheit(),
-            2=> fahrenheit_to_celsius(),
-            3=> {
+            1 => celsius_to_fahrenheit(),
+            2 => fahrenheit_to_celsius(),
+            3 => {
                 println!("Goodbye!");
                 break;
             }
-            _=> println!("Invalid choice, please try again!");
-        } 
+            _ => println!("Invalid choice, please try again!"),
+        }
     }
 }
 
 fn celsius_to_fahrenheit() {
-    println!("Enter temperature in Celsius");
+    println!("Enter temperature in Celsius:");
 
     let mut celsius = String::new();
     io::stdin()
@@ -50,17 +50,19 @@ fn celsius_to_fahrenheit() {
             return;
         }
     };
-    let fahrenheit = (celsius*(9.0/5.0))+32.0;
-   println!("{celsius} °C is equal to {fahrenheit} °F"); 
 
+    let fahrenheit = (celsius * (9.0 / 5.0)) + 32.0;
+    println!("{celsius} °C is equal to {fahrenheit} °F");
+}
 
-fn fahrenheit_to_celsius(){
-    println!("Enter temperature in Fahrenheit");
+fn fahrenheit_to_celsius() {
+    println!("Enter temperature in Fahrenheit:");
 
-    let mut fahrenheit= String::new();
+    let mut fahrenheit = String::new();
     io::stdin()
         .read_line(&mut fahrenheit)
         .expect("Failed to read input");
+
     let fahrenheit: f64 = match fahrenheit.trim().parse() {
         Ok(num) => num,
         Err(_) => {
@@ -68,10 +70,8 @@ fn fahrenheit_to_celsius(){
             return;
         }
     };
-    let celsius = ((fahrenheit- 32.0) * 5.0)/9.0;
-    
-      println!("{fahrenheit} °F is equal to {celsius} °C");
-}
 
+    let celsius = ((fahrenheit - 32.0) * 5.0) / 9.0;
+    println!("{fahrenheit} °F is equal to {celsius} °C");
 }
 
